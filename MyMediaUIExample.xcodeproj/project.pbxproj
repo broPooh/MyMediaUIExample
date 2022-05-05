@@ -16,6 +16,11 @@
 		1B5FFE7F28222D7800EC5AD7 /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FFE7E28222D7800EC5AD7 /* TvShow.swift */; };
 		1B5FFE8128222E1B00EC5AD7 /* TvShowInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FFE8028222E1B00EC5AD7 /* TvShowInformation.swift */; };
 		1B82ECCC282259BF0033104C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECCB282259BF0033104C /* MainViewController.swift */; };
+		1B82ECCE28225AAE0033104C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */; };
+		1B82ECD2282289650033104C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECD1282289650033104C /* SearchViewController.swift */; };
+		1B82ECD428228DBB0033104C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECD328228DBB0033104C /* SearchTableViewCell.swift */; };
+		1B82ECD628235B7E0033104C /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECD528235B7E0033104C /* CastViewController.swift */; };
+		1B82ECD828235BA50033104C /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECD728235BA50033104C /* CastTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		1B5FFE7E28222D7800EC5AD7 /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
 		1B5FFE8028222E1B00EC5AD7 /* TvShowInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowInformation.swift; sourceTree = "<group>"; };
 		1B82ECCB282259BF0033104C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		1B82ECD1282289650033104C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1B82ECD328228DBB0033104C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		1B82ECD528235B7E0033104C /* CastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
+		1B82ECD728235BA50033104C /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +78,15 @@
 				1B5FFE7E28222D7800EC5AD7 /* TvShow.swift */,
 				1B5FFE8028222E1B00EC5AD7 /* TvShowInformation.swift */,
 				1B5FFE7028222AB100EC5AD7 /* Main.storyboard */,
+				1B82ECD728235BA50033104C /* CastTableViewCell.swift */,
+				1B82ECD328228DBB0033104C /* SearchTableViewCell.swift */,
 				1B82ECCB282259BF0033104C /* MainViewController.swift */,
+				1B82ECD1282289650033104C /* SearchViewController.swift */,
+				1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */,
 				1B5FFE7328222AB500EC5AD7 /* Assets.xcassets */,
 				1B5FFE7528222AB500EC5AD7 /* LaunchScreen.storyboard */,
 				1B5FFE7828222AB500EC5AD7 /* Info.plist */,
+				1B82ECD528235B7E0033104C /* CastViewController.swift */,
 			);
 			path = MyMediaUIExample;
 			sourceTree = "<group>";
@@ -150,9 +165,14 @@
 				1B5FFE6F28222AB100EC5AD7 /* ViewController.swift in Sources */,
 				1B5FFE8128222E1B00EC5AD7 /* TvShowInformation.swift in Sources */,
 				1B5FFE6B28222AB100EC5AD7 /* AppDelegate.swift in Sources */,
+				1B82ECD2282289650033104C /* SearchViewController.swift in Sources */,
+				1B82ECCE28225AAE0033104C /* MainTableViewCell.swift in Sources */,
 				1B82ECCC282259BF0033104C /* MainViewController.swift in Sources */,
+				1B82ECD628235B7E0033104C /* CastViewController.swift in Sources */,
 				1B5FFE7F28222D7800EC5AD7 /* TvShow.swift in Sources */,
+				1B82ECD828235BA50033104C /* CastTableViewCell.swift in Sources */,
 				1B5FFE6D28222AB100EC5AD7 /* SceneDelegate.swift in Sources */,
+				1B82ECD428228DBB0033104C /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
