@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let tvShowInformation = TvShowInformation()
+    let tvShowInformation = TvShowInformation()    
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
@@ -17,12 +17,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(leftBarButtonItemDidTap))
-
         navigationConfig()
         searchTableViewConfig()
     }
-    
+
     // MARK: -  View Config
     func setUIConfig() {
         navigationConfig()
@@ -39,9 +37,12 @@ class SearchViewController: UIViewController {
     }
     
     @objc func leftBarButtonItemDidTap() {
+        dismissViewController()
+    }
+    
+    func dismissViewController() {
         dismiss(animated: true, completion: nil)
     }
-
 
 }
 

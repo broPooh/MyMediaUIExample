@@ -61,6 +61,7 @@ class MainViewController: UIViewController {
         
         present(nav, animated: true, completion: nil)
     }
+    
 }
 
 // MARK: - TableView delegate, datasource
@@ -101,4 +102,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "CastViewController") as? CastViewController else {
+            print("CastViewController not Found")
+            return
+        }
+        
+        vc.tvShowData = tvShowInformation.tvShow[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true )
+    }
+    
 }
