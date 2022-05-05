@@ -21,6 +21,10 @@ class MainTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cardView: UIView!
     
+    @IBOutlet weak var linkButton: UIButton!
+    
+    var delegate: ComponentMainCellDelegate?
+    var index: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,4 +51,13 @@ class MainTableViewCell: UITableViewCell {
         cardView.layer.shadowOffset = .zero
     }
 
+    
+    @IBAction func lickButtonClicked(_ sender: UIButton) {
+        self.delegate?.clickedLinkButton(index: index)
+    }
+    
+}
+
+protocol ComponentMainCellDelegate {
+    func clickedLinkButton(index: Int)
 }

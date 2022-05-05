@@ -87,6 +87,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         print(tvShow)
         
         let imageName = tvShow.title.lowercased().replacingOccurrences(of: " ", with: "_")
+        
+        
+        cell.delegate = self
+        cell.index = indexPath.row
             
         cell.dateLabel.text = tvShow.releaseDate
         cell.genreLabel.text = "#\(tvShow.genre)"
@@ -115,4 +119,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(vc, animated: true )
     }
     
+}
+
+
+extension MainViewController: ComponentMainCellDelegate {
+    func clickedLinkButton(index: Int) {
+        guard let backdropUrl = URL(string: tvShowInformation.tvShow[index].backdropImage) else {
+            return
+        }
+        
+        guard UIApplication.shared.canOpenURL(backdropUrl) else {
+            return
+        }
+        
+        UIApplication.shared.open(backdropUrl, options: [:], completionHandler: nil)
+    }
 }
