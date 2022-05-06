@@ -49,6 +49,7 @@ class MainViewController: UIViewController {
         
         let vc = sb.instantiateViewController(withIdentifier: "CastViewController") as! CastViewController
         self.navigationController?.pushViewController(vc, animated: true )
+                
     }
     
     
@@ -71,6 +72,17 @@ class MainViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: Const.ViewController.BookViewController) as! BookViewController
         self.navigationController?.pushViewController(vc, animated: true )
         
+    }
+    
+    @IBAction func locationBarButtonItemClicked(_ sender: UIBarButtonItem) {
+        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: Const.ViewController.MapViewController) as? MapViewController else {
+            print("Error") // 에러 문구 혹은 얼럿으로 처리
+            return
+        }
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

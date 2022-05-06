@@ -293,11 +293,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Trend Media" id="t6O-fN-MEt">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.triangle" catalog="system" id="T8t-YX-rHP">
-                            <connections>
-                                <action selector="listBarButtonItemClicked:" destination="BYZ-38-t0r" id="uZJ-lh-SF2"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="list.triangle" catalog="system" id="T8t-YX-rHP">
+                                <connections>
+                                    <action selector="listBarButtonItemClicked:" destination="BYZ-38-t0r" id="uZJ-lh-SF2"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="location" image="location.fill" catalog="system" id="7KV-t9-vSz">
+                                <connections>
+                                    <action selector="locationBarButtonItemClicked:" destination="BYZ-38-t0r" id="ZJl-CR-WIi"/>
+                                    <segue destination="52w-4i-u3h" kind="show" id="Cu6-q5-aDg"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="2XK-QP-dmE">
                             <connections>
                                 <action selector="searchBarButtonItemClicked:" destination="BYZ-38-t0r" id="oZM-f3-1qt"/>
@@ -359,7 +367,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmK-Eu-XjQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="836"/>
+            <point key="canvasLocation" x="790" y="873"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Yoz-qg-Nzp">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="52w-4i-u3h" customClass="MapViewController" customModule="MyMediaUIExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MGP-tC-zYF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dGz-0c-Zd9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l1V-Sg-1CK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l1V-Sg-1CK" firstAttribute="trailing" secondItem="dGz-0c-Zd9" secondAttribute="trailing" id="36c-zr-pSJ"/>
+                            <constraint firstItem="dGz-0c-Zd9" firstAttribute="leading" secondItem="l1V-Sg-1CK" secondAttribute="leading" id="Jsq-Mv-jRu"/>
+                            <constraint firstItem="l1V-Sg-1CK" firstAttribute="bottom" secondItem="dGz-0c-Zd9" secondAttribute="bottom" id="Z95-c1-yC8"/>
+                            <constraint firstItem="dGz-0c-Zd9" firstAttribute="top" secondItem="l1V-Sg-1CK" secondAttribute="top" id="lwU-Jc-MZH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ipu-30-02e"/>
+                    <connections>
+                        <outlet property="mapView" destination="dGz-0c-Zd9" id="lJS-MD-Zmd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dR1-Nm-YtX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="-553"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="gFa-aO-URr">
@@ -608,12 +646,28 @@
             </objects>
             <point key="canvasLocation" x="-181" y="139"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ej6-PN-wQj">
+            <objects>
+                <viewController id="pMs-uC-djd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gfA-xv-SQX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lUq-p3-y6F"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuL-Ap-ozn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994" y="-1226"/>
+        </scene>
     </scenes>
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="list.triangle" catalog="system" width="128" height="91"/>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="paperclip.circle.fill" catalog="system" width="128" height="121"/>
         <image name="squid_game" width="350" height="515"/>

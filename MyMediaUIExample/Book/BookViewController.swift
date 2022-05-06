@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class BookViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class BookViewController: UIViewController {
         
         navigationConfig()
         bookCollectionViewConfig()
-    
+            
     }
     
     func navigationConfig() {
@@ -48,6 +49,10 @@ class BookViewController: UIViewController {
         
         bookCollectionView.collectionViewLayout = layout
     }
+    
+    @objc func posterButtonClicked(button: UIButton) {
+        self.view.makeToast("\(button.tag) Button Clicked!")
+    }
 
 }
 
@@ -72,6 +77,9 @@ extension BookViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.titleLabel.text = tvShow.title
         cell.rateLabel.text = "\(tvShow.rate)"
         cell.posterImageView.image = UIImage(named: imageName)
+        
+        cell.posterButton.tag = indexPath.row
+        cell.posterButton.addTarget(self, action: #selector(posterButtonClicked(button:)), for: .touchUpInside)
         
         return cell
     }

@@ -13,6 +13,7 @@ extension Const {
         static let MainViewController = "MainViewController"
         static let CastViewController = "CastViewController"
         static let BookViewController = "BookViewController"
+        static let MapViewController = "MapViewController"
                 
     }
 }

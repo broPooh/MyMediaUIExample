@@ -11,6 +11,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "BookCollectionViewCell"
 
+    @IBOutlet weak var posterButton: UIButton!
     @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!

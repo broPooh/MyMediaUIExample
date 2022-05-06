@@ -42,17 +42,24 @@
                                     <constraint firstAttribute="width" secondItem="HXY-7G-xYT" secondAttribute="height" multiplier="3:4" id="vGf-6b-nOb"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqX-tr-ORY">
+                                <rect key="frame" x="102" y="146" width="122" height="163"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BqX-tr-ORY" firstAttribute="trailing" secondItem="HXY-7G-xYT" secondAttribute="trailing" id="0al-mM-HmQ"/>
                             <constraint firstAttribute="bottom" secondItem="YA0-9H-2aZ" secondAttribute="bottom" constant="20" id="2uD-wc-XJr"/>
                             <constraint firstAttribute="trailing" secondItem="GxP-zu-RIe" secondAttribute="trailing" constant="20" id="4FO-IB-2Dh"/>
                             <constraint firstItem="YA0-9H-2aZ" firstAttribute="leading" secondItem="oXY-8y-CnQ" secondAttribute="leading" constant="20" id="5le-G0-RuX"/>
                             <constraint firstAttribute="bottom" secondItem="HXY-7G-xYT" secondAttribute="bottom" id="9NW-gb-UQG"/>
                             <constraint firstItem="GxP-zu-RIe" firstAttribute="top" secondItem="oXY-8y-CnQ" secondAttribute="top" constant="20" id="EqS-g6-j0s"/>
                             <constraint firstItem="GxP-zu-RIe" firstAttribute="leading" secondItem="oXY-8y-CnQ" secondAttribute="leading" constant="20" id="N8p-mi-1ag"/>
+                            <constraint firstItem="BqX-tr-ORY" firstAttribute="top" secondItem="HXY-7G-xYT" secondAttribute="top" id="SlG-dd-ZWA"/>
                             <constraint firstAttribute="trailing" secondItem="HXY-7G-xYT" secondAttribute="trailing" constant="20" id="azh-6f-taV"/>
                             <constraint firstItem="HXY-7G-xYT" firstAttribute="width" secondItem="oXY-8y-CnQ" secondAttribute="width" multiplier="0.5" id="eXX-T6-b22"/>
+                            <constraint firstItem="BqX-tr-ORY" firstAttribute="bottom" secondItem="HXY-7G-xYT" secondAttribute="bottom" id="nNR-Kc-Gk9"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -67,6 +74,7 @@
             <size key="customSize" width="244" height="308"/>
             <connections>
                 <outlet property="cellBackgroundView" destination="oXY-8y-CnQ" id="blk-MG-WAD"/>
+                <outlet property="posterButton" destination="BqX-tr-ORY" id="aR8-g2-6Il"/>
                 <outlet property="posterImageView" destination="HXY-7G-xYT" id="dA7-Px-VIx"/>
                 <outlet property="rateLabel" destination="YA0-9H-2aZ" id="ZYf-s9-79i"/>
                 <outlet property="titleLabel" destination="GxP-zu-RIe" id="nKE-uD-Rf9"/>
