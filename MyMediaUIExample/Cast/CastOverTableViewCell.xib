@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="CastOverTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CastOverTableViewCell" rowHeight="155" id="KGk-i7-Jjw" customClass="CastOverTableViewCell" customModule="MyMediaUIExample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="255" height="155"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="255" height="155"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmu-2Z-ZkL">
+                        <rect key="frame" x="20" y="20" width="215" height="51"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKt-7P-xFM">
+                        <rect key="frame" x="105.5" y="91" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="Ad2-5f-44R"/>
+                            <constraint firstAttribute="width" constant="44" id="QqK-5P-jie"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="chevron.down" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rmu-2Z-ZkL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3Hz-vR-xf8"/>
+                    <constraint firstItem="QKt-7P-xFM" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DVf-kC-hQn"/>
+                    <constraint firstAttribute="bottom" secondItem="QKt-7P-xFM" secondAttribute="bottom" constant="20" id="JzJ-Yv-jrW"/>
+                    <constraint firstItem="rmu-2Z-ZkL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="XNR-uo-v1l"/>
+                    <constraint firstAttribute="trailing" secondItem="rmu-2Z-ZkL" secondAttribute="trailing" constant="20" id="Xyg-AQ-y1S"/>
+                    <constraint firstItem="QKt-7P-xFM" firstAttribute="top" secondItem="rmu-2Z-ZkL" secondAttribute="bottom" constant="20" id="aea-6F-EFn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="moreButton" destination="QKt-7P-xFM" id="oy8-nM-Cpf"/>
+                <outlet property="overviewLabel" destination="rmu-2Z-ZkL" id="3G3-3P-oGn"/>
+            </connections>
+            <point key="canvasLocation" x="389.13043478260875" y="106.13839285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+    </resources>
+</document>

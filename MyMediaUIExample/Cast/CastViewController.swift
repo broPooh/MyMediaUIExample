@@ -20,6 +20,8 @@ class CastViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var isOverState = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +36,8 @@ class CastViewController: UIViewController {
     func castTableViewConfig() {
         castTableView.delegate = self
         castTableView.dataSource = self
+        
+        connectOverviewCell()
     }
     
     func initData(tvShowData: TvShow?) {
@@ -79,6 +83,28 @@ class CastViewController: UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true)
     }
+    
+    func connectOverviewCell() {
+        //XIB 파일 연결
+        let nibName = UINib(nibName: CastOverTableViewCell.identifier, bundle: nil)
+        castTableView.register(nibName, forCellReuseIdentifier: CastOverTableViewCell.identifier)
+    }
+    
+    @objc func showMoreOverView(moreButton: UIButton) {
+        
+        isOverState = !isOverState
+        
+        let image = isOverState ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.up")
+        moreButton.setImage(image, for: .normal)
+//        if overviewLabel.numberOfLines == 1 {
+//            overviewLabel.numberOfLines = 0
+//            moreButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+//        } else {
+//            overviewLabel.numberOfLines = 1
+//            moreButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+//        }
+        castTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+    }
 
 
 }
@@ -88,31 +114,62 @@ class CastViewController: UIViewController {
 extension CastViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return CastCell.allCases.count
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tvShowInformation.tvShow.count
+        if section == CastCell.overview.rawValue {
+            return 1
+        } else {
+            return tvShowInformation.tvShow.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier) as? CastTableViewCell else {
-            return UITableViewCell()
-        }
-        
         //임시 데이터
         let tvShow = tvShowInformation.tvShow[indexPath.row]
         
-        let imageName = tvShow.title.lowercased().replacingOccurrences(of: " ", with: "_")
-        
-        cell.castImageView.image = UIImage(named: imageName)
-        cell.castFirstLabel.text = tvShow.title
-        cell.castSecondLabel.text = tvShow.genre
-        
-        return cell
+        if indexPath.section == CastCell.overview.rawValue {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastOverTableViewCell.identifier) as? CastOverTableViewCell else {
+                print("error")
+                return UITableViewCell()
+            }
+           
+            cell.overviewLabel.text = tvShow.overview
+            cell.overviewLabel.numberOfLines = isOverState ? 1 : 0
+            
+            let image = isOverState ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.up")
+            cell.moreButton.setImage(image, for: .normal)
+            cell.moreButton.addTarget(self, action: #selector(showMoreOverView(moreButton:)), for: .touchUpInside)
+            return cell
+            
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastTableViewCell.identifier) as? CastTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            //임시 데이터
+            //let tvShow = tvShowInformation.tvShow[indexPath.row]
+            
+            let imageName = tvShow.title.lowercased().replacingOccurrences(of: " ", with: "_")
+            
+            cell.castImageView.image = UIImage(named: imageName)
+            cell.castFirstLabel.text = tvShow.title
+            cell.castSecondLabel.text = tvShow.genre
+            
+            return cell
+        }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
 }
 
+enum CastCell: Int, CaseIterable {
+    case overview = 0
+    case tvshow = 1
+}

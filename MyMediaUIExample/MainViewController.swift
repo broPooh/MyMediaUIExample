@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var selctBackgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
     
+    @IBOutlet weak var bookButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,6 +64,14 @@ class MainViewController: UIViewController {
         present(nav, animated: true, completion: nil)
     }
     
+    @IBAction func bookButtonClicked(_ sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = sb.instantiateViewController(withIdentifier: Const.ViewController.BookViewController) as! BookViewController
+        self.navigationController?.pushViewController(vc, animated: true )
+        
+    }
 }
 
 // MARK: - TableView delegate, datasource
