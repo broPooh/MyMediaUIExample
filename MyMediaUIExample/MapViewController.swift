@@ -14,7 +14,7 @@ enum TheaterEnum: String, CaseIterable {
     case lotteCinema = "롯데시네마"
     case cgv = "CGV"
     case all = "ALL"
-    
+        
     func theaterAnnotation() -> [MKPointAnnotation] {
         switch self {
         case .megaBox, .lotteCinema, .cgv, .all:
