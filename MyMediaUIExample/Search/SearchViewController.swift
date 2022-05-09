@@ -20,6 +20,13 @@ class SearchViewController: UIViewController {
         navigationConfig()
         searchTableViewConfig()
     }
+    
+    func fetchMovieData() {
+        if let query = "스파이더맨".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            
+            let url = "https://openapi.naver.com/v1/search/movie.xml?query=\(query)&display=15"
+        }
+    }
 
     // MARK: -  View Config
     func setUIConfig() {

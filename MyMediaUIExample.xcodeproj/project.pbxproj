@@ -35,6 +35,8 @@
 		1BDA0249282524A700E75205 /* TheaterLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA0248282524A700E75205 /* TheaterLocation.swift */; };
 		1BDA024B282524D300E75205 /* TheaterLocationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA024A282524D300E75205 /* TheaterLocationInformation.swift */; };
 		1BDA024D2825548B00E75205 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA024C2825548B00E75205 /* Alert+Extension.swift */; };
+		1BDA029D2828C00E00E75205 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA029C2828C00E00E75205 /* Alamofire */; };
+		1BDA02A02828C01D00E75205 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA029F2828C01D00E75205 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BDA029D2828C00E00E75205 /* Alamofire in Frameworks */,
 				1BDA02432825079200E75205 /* Toast in Frameworks */,
+				1BDA02A02828C01D00E75205 /* SwiftyJSON in Frameworks */,
 				1B82ED0528237EDE0033104C /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +194,8 @@
 			packageProductDependencies = (
 				1B82ED0428237EDE0033104C /* Kingfisher */,
 				1BDA02422825079200E75205 /* Toast */,
+				1BDA029C2828C00E00E75205 /* Alamofire */,
+				1BDA029F2828C01D00E75205 /* SwiftyJSON */,
 			);
 			productName = MyMediaUIExample;
 			productReference = 1B5FFE6728222AB100EC5AD7 /* MyMediaUIExample.app */;
@@ -222,6 +228,8 @@
 			packageReferences = (
 				1B82ED0328237EDE0033104C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1BDA02412825079200E75205 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				1BDA029B2828C00E00E75205 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				1BDA029E2828C01C00E75205 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 1B5FFE6828222AB100EC5AD7 /* Products */;
 			projectDirPath = "";
@@ -506,6 +514,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		1BDA029B2828C00E00E75205 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1BDA029E2828C01C00E75205 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -518,6 +542,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1BDA02412825079200E75205 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		1BDA029C2828C00E00E75205 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BDA029B2828C00E00E75205 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		1BDA029F2828C01D00E75205 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BDA029E2828C01C00E75205 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
