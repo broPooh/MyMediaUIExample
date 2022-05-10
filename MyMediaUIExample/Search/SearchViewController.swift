@@ -21,19 +21,20 @@ class SearchViewController: UIViewController {
     
     var startPage = 1
     var totalCount = 2000
+    var query = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationConfig()
         searchTableViewConfig()
+        searchBarConfig()
         
-        fetchMovieData()
     }
     
-    func fetchMovieData() {
-        if let query = "사랑".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-                    
+    func fetchMovieData(queryText: String, startPage: Int) {
+        if let query = queryText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            self.query = queryText
             let url = "https://openapi.naver.com/v1/search/movie.json?query=\(query)&display=10&start=\(startPage)"
         
                         
@@ -95,6 +96,11 @@ class SearchViewController: UIViewController {
     func dismissViewController() {
         dismiss(animated: true, completion: nil)
     }
+    
+    func searchBarConfig() {
+        searchBar.delegate = self
+        
+    }
 
 }
 
@@ -107,7 +113,9 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
         for indexPath in indexPaths {
             if movieData.count - 1 == indexPath.row && movieData.count < totalCount{
                 startPage += 10
-                fetchMovieData()
+                if let text = searchBar.text {
+                    fetchMovieData(queryText: text, startPage: startPage)
+                }
                 print("prefetch: \(indexPaths)")
             }
         }
@@ -148,17 +156,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.searchImageView.image = UIImage(systemName: "star")
         }
         
-        
-        //임시 데이터
-        //let tvShow = tvShowInformation.tvShow[indexPath.row]
-        
-        //let imageName = tvShow.title.lowercased().replacingOccurrences(of: " ", with: "_")
-        
-        //cell.searchTitleLabel.text = tvShow.title
-        //cell.searchImageView.image = UIImage(named: imageName)
-        //cell.searchResultLabel.text = tvShow.genre
-        //cell.searchOverViewLabel.text = tvShow.overview
-        
         return cell
     }
     
@@ -168,7 +165,29 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - SearchBar
 extension SearchViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    
+    //검색 버튼(키보드 리턴키)를 눌렀을 때 실행
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        if let text = searchBar.text {
+            startPage = 1
+            movieData.removeAll()
+            fetchMovieData(queryText: text, startPage: startPage)
+        }
+
     }
+    
+    //취소 버튼 눌렀을 때 실행
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        movieData.removeAll()
+        searchTableView.reloadData()
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    //서치바에서 커서가 깜빡이기 시작했을 때 호출
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
 }
