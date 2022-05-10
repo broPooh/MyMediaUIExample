@@ -17,7 +17,6 @@ class TmdbAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
                 
                 let statusCode = response.response?.statusCode ?? 500
                 

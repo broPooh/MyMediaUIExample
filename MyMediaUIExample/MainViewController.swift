@@ -59,6 +59,7 @@ class MainViewController: UIViewController {
     func setTableViewConfig() {
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        mainTableView.prefetchDataSource = self
     }
     
     @IBAction func listBarButtonItemClicked(_ sender: UIBarButtonItem) {
@@ -109,10 +110,32 @@ class MainViewController: UIViewController {
             self.totalPage = totalPage
             
             //self.currentPage != 1 ? self.trendingDatas.append(contentsOf: trendingDatas) : self.trendingDatas.removeAll(); self.trendingDatas.append(contentsOf: trendingDatas)
+            
             self.trendingDatas.append(contentsOf: trendingDatas)
         }
     }
 }
+
+// MARK: - TableView UITableViewDataSourcePrefetching
+extension MainViewController: UITableViewDataSourcePrefetching {
+    //셀이 화면에 보이기 전에 필요한 리소스를 미리 다운 받는 기능
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        for indexPath in indexPaths {
+            if trendingDatas.count - 1 == indexPath.row && trendingDatas.count < totalPage {
+                currentPage += 1
+                self.fetchTrendData(mediaType: self.mediaType, windowType: self.windowType, page: currentPage)
+                print("prefetch: \(indexPaths)")
+            }
+        }
+    }
+    
+    //취소
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        print("취소:\(indexPaths)")
+    }
+}
+
 
 // MARK: - TableView delegate, datasource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
