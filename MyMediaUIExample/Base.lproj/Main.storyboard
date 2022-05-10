@@ -316,7 +316,7 @@
                         <outlet property="bookButton" destination="d0d-up-9Oq" id="pID-tw-s2j"/>
                         <outlet property="mainTableView" destination="J19-QG-gNB" id="9LI-AE-SI2"/>
                         <outlet property="selctBackgroundView" destination="H90-33-9ZT" id="4wB-Oi-0IF"/>
-                        <outlet property="selectTableView" destination="hiy-HP-xjN" id="kgv-PE-4Xv"/>
+                        <outlet property="selectContainerView" destination="hiy-HP-xjN" id="sMv-wZ-d2G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

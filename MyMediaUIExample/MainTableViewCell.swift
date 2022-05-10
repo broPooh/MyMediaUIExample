@@ -50,6 +50,15 @@ class MainTableViewCell: UITableViewCell {
         cardView.layer.shadowOpacity = 0.5
         cardView.layer.shadowOffset = .zero
     }
+    
+    func bindData(trendingData: TmdbTrendingData) {
+        dateLabel.text = trendingData.releaseDate
+        genreLabel.text = "#\(trendingData.genreIds)"
+        posterImageView.kf.setImage(with: URL(string: trendingData.backdropPath))
+        castLabel.text = trendingData.releaseDate
+        titleLabel.text = trendingData.title
+        rateLabel.text = trendingData.voteAverage
+    }
 
     
     @IBAction func lickButtonClicked(_ sender: UIButton) {

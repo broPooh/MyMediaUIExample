@@ -6,29 +6,47 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
     
     let tvShowInformation = TvShowInformation()
     
-    @IBOutlet weak var selectTableView: UIView!
+    @IBOutlet weak var selectContainerView: UIView!
     @IBOutlet weak var selctBackgroundView: UIView!
     @IBOutlet weak var mainTableView: UITableView!
     
     @IBOutlet weak var bookButton: UIButton!
+    
+    var mediaType: TrendingMediaType = .movie
+    var windowType: TrendingWindowType = .day
+    
+    var currentPage = 1
+    var totalPage = 0
+    
+    var trendingDatas: [TmdbTrendingData] = [] {
+        didSet {
+            mainTableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setContentTableViewConfig()
         setTableViewConfig()
+        initTrendingData()
+    }
+    
+    func initTrendingData() {
+        fetchTrendData(mediaType: mediaType, windowType: windowType, page: currentPage)
     }
     
     
     // MARK: -  View Config
     func setContentTableViewConfig() {
-        selectTableView.clipsToBounds = true
-        selectTableView.layer.cornerRadius = 10
+        selectContainerView.clipsToBounds = true
+        selectContainerView.layer.cornerRadius = 10
         
         
         selctBackgroundView.layer.cornerRadius = 10
@@ -84,6 +102,16 @@ class MainViewController: UIViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func fetchTrendData(mediaType: TrendingMediaType, windowType: TrendingWindowType, page: Int) {
+        TmdbAPIManager.shared.fetchTrendingTmdbData(mediaType: mediaType, windowType: windowType, page: page) { code, trendingDatas, totalPage in
+            self.currentPage = page
+            self.totalPage = totalPage
+            
+            //self.currentPage != 1 ? self.trendingDatas.append(contentsOf: trendingDatas) : self.trendingDatas.removeAll(); self.trendingDatas.append(contentsOf: trendingDatas)
+            self.trendingDatas.append(contentsOf: trendingDatas)
+        }
+    }
 }
 
 // MARK: - TableView delegate, datasource
@@ -94,7 +122,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tvShowInformation.tvShow.count
+        //return tvShowInformation.tvShow.count
+        return trendingDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,21 +134,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let tvShow = tvShowInformation.tvShow[indexPath.row]
-        print(tvShow)
         
-        let imageName = tvShow.title.lowercased().replacingOccurrences(of: " ", with: "_")
-        
+        let trendingData = trendingDatas[indexPath.row]
         
         cell.delegate = self
         cell.index = indexPath.row
             
-        cell.dateLabel.text = tvShow.releaseDate
-        cell.genreLabel.text = "#\(tvShow.genre)"
-        cell.posterImageView.image = UIImage(named: imageName)
-        cell.castLabel.text = tvShow.starring
-        cell.titleLabel.text = tvShow.title
-        cell.rateLabel.text = "\(tvShow.rate)"
+        cell.bindData(trendingData: trendingData)
         
                 
         return cell
