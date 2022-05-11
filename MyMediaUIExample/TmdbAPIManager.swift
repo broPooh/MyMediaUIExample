@@ -54,17 +54,17 @@ class TmdbAPIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                //let credits = json[category == .cast ? "cast" : "crew"].arrayValue
+
                 let casts: [Cast] = json[CreditType.cast.rawValue].arrayValue.map { json in
                     let name = json["name"].stringValue
-                    let profilePath = json["profile_path"].stringValue
+                    let profilePath = Const.EndPoint.tmdbImageUrl(imagePath: json["profile_path"].stringValue)
                     let character = json["character"].stringValue
                     return Cast(name: name, profilePath: profilePath, character: character)
                 }
                 
                 let crews: [Crew] = json[CreditType.crew.rawValue].arrayValue.map { json in
                     let name = json["name"].stringValue
-                    let profilePath = json["profile_path"].stringValue
+                    let profilePath = Const.EndPoint.tmdbImageUrl(imagePath: json["profile_path"].stringValue)
                     let job = json["job"].stringValue
                     return Crew(name: name, profilePath: profilePath, job: job)
                 }
