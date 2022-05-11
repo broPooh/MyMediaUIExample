@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import JGProgressHUD
 
 class MainViewController: UIViewController {
     
@@ -20,6 +21,8 @@ class MainViewController: UIViewController {
     
     var mediaType: TrendingMediaType = .movie
     var windowType: TrendingWindowType = .day
+    
+    var progress = JGProgressHUD()
     
     var currentPage = 1
     var totalPage = 0
@@ -190,15 +193,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension MainViewController: ComponentMainCellDelegate {
+
     func clickedLinkButton(index: Int) {
-        guard let backdropUrl = URL(string: tvShowInformation.tvShow[index].backdropImage) else {
-            return
-        }
+        progress.show(in: view, animated: true)
         
-        guard UIApplication.shared.canOpenURL(backdropUrl) else {
-            return
+        TmdbAPIManager.shared.fetchVideoData(movieId: trendingDatas[index].id) { code, youtubeKey in
+            guard let key = URL(string: Const.EndPoint.youtubeUrl(key: youtubeKey)) else { self.progress.dismiss(animated: true); return }
+            
+            guard UIApplication.shared.canOpenURL(key) else { self.progress.dismiss(animated: true); return }
+            
+            UIApplication.shared.open(key, options: [:], completionHandler: nil)
+            self.progress.dismiss(animated: true)
         }
-        
-        UIApplication.shared.open(backdropUrl, options: [:], completionHandler: nil)
     }
 }

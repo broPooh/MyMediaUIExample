@@ -77,4 +77,22 @@ class TmdbAPIManager {
         }
     }
     
+    
+    func fetchVideoData(movieId: Int, result: @escaping (Int, String) -> () ) {
+        AF.request(Const.EndPoint.tmdbMovieViedoUrl(movieId: movieId), method: .get).validate(statusCode: 200...500).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let videos = json["results"].arrayValue
+                
+                let youtubeKey = videos[0]["key"].stringValue
+                
+                let statusCode = response.response?.statusCode ?? 500
+                result(statusCode, youtubeKey)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }
