@@ -23,6 +23,7 @@ class TmdbAPIManager {
                 let results = json["results"].arrayValue
                 let totalPage = json["total_pages"].intValue
                 let trendingDatas: [TmdbTrendingData] = results.map { json in
+                    let id = json["id"].intValue
                     let title = json["title"].stringValue
                     let overview = json["overview"].stringValue
                     let releaseDate = json["release_date"].stringValue
@@ -35,7 +36,7 @@ class TmdbAPIManager {
                     
                     let voteAverage = json["voteAverage"].stringValue
                     
-                    return TmdbTrendingData(title: title, overview: overview, releaseDate: releaseDate, posterPath: posterPath, backdropPath: backdropPath, genreIds: genreIds, voteAverage: voteAverage)
+                    return TmdbTrendingData(id: id, title: title, overview: overview, releaseDate: releaseDate, posterPath: posterPath, backdropPath: backdropPath, genreIds: genreIds, voteAverage: voteAverage)
                 }
                                 
                 result(statusCode, trendingDatas, totalPage)
@@ -46,4 +47,34 @@ class TmdbAPIManager {
             }
         }
     }
+    
+    
+    func fetchCeditData(movieId: Int, result: @escaping (Int, CreditData) -> () ) {
+        AF.request(Const.EndPoint.tmdbMovieCreditURL(movieId: movieId), method: .get).validate(statusCode: 200...500).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                //let credits = json[category == .cast ? "cast" : "crew"].arrayValue
+                let casts: [Cast] = json[CreditType.cast.rawValue].arrayValue.map { json in
+                    let name = json["name"].stringValue
+                    let profilePath = json["profile_path"].stringValue
+                    let character = json["character"].stringValue
+                    return Cast(name: name, profilePath: profilePath, character: character)
+                }
+                
+                let crews: [Crew] = json[CreditType.crew.rawValue].arrayValue.map { json in
+                    let name = json["name"].stringValue
+                    let profilePath = json["profile_path"].stringValue
+                    let job = json["job"].stringValue
+                    return Crew(name: name, profilePath: profilePath, job: job)
+                }
+                
+                let statusCode = response.response?.statusCode ?? 500
+                result(statusCode, CreditData(id: movieId, casts: casts, crews: crews))
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }

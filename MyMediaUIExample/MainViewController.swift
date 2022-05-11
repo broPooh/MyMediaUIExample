@@ -161,7 +161,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let trendingData = trendingDatas[indexPath.row]
         
         cell.delegate = self
+        cell.maindCellDelegate = self
         cell.index = indexPath.row
+        
+        //cell.linkButton.
             
         cell.bindData(trendingData: trendingData)
         
@@ -200,4 +203,14 @@ extension MainViewController: ComponentMainCellDelegate {
         
         UIApplication.shared.open(backdropUrl, options: [:], completionHandler: nil)
     }
+}
+
+
+extension MainViewController: MainTableViewCellDelegate {
+    
+    func linkButtonClicked(trendingData: TmdbTrendingData) {
+        <#code#>
+    }
+    
+    
 }

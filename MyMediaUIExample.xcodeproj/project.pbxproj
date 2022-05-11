@@ -18,6 +18,7 @@
 		1B6366BD282A173F00172A1A /* TmdbAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366BC282A173F00172A1A /* TmdbAPIManager.swift */; };
 		1B6366BF282A187000172A1A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366BE282A187000172A1A /* Enums.swift */; };
 		1B6366C1282A258100172A1A /* TmdbTrendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366C0282A258100172A1A /* TmdbTrendingData.swift */; };
+		1B6366C3282A817200172A1A /* CreditData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366C2282A817200172A1A /* CreditData.swift */; };
 		1B82ECCC282259BF0033104C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECCB282259BF0033104C /* MainViewController.swift */; };
 		1B82ECCE28225AAE0033104C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */; };
 		1B82ECD2282289650033104C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECD1282289650033104C /* SearchViewController.swift */; };
@@ -58,6 +59,7 @@
 		1B6366BC282A173F00172A1A /* TmdbAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPIManager.swift; sourceTree = "<group>"; };
 		1B6366BE282A187000172A1A /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1B6366C0282A258100172A1A /* TmdbTrendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbTrendingData.swift; sourceTree = "<group>"; };
+		1B6366C2282A817200172A1A /* CreditData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditData.swift; sourceTree = "<group>"; };
 		1B82ECCB282259BF0033104C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		1B82ECD1282289650033104C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				1B5FFE6A28222AB100EC5AD7 /* AppDelegate.swift */,
 				1B6366BC282A173F00172A1A /* TmdbAPIManager.swift */,
 				1B6366C0282A258100172A1A /* TmdbTrendingData.swift */,
+				1B6366C2282A817200172A1A /* CreditData.swift */,
 				1B5FFE6C28222AB100EC5AD7 /* SceneDelegate.swift */,
 				1BDA023E2824F98B00E75205 /* Data */,
 				1B5FFE7028222AB100EC5AD7 /* Main.storyboard */,
@@ -291,6 +294,7 @@
 				1BDA02402824F9BD00E75205 /* CustomCell.swift in Sources */,
 				1B5FFE7F28222D7800EC5AD7 /* TvShow.swift in Sources */,
 				1B82ED142824AD950033104C /* CastOverTableViewCell.swift in Sources */,
+				1B6366C3282A817200172A1A /* CreditData.swift in Sources */,
 				1BDA0249282524A700E75205 /* TheaterLocation.swift in Sources */,
 				1BDA022D2824F67F00E75205 /* BookViewController.swift in Sources */,
 				1B82ECD828235BA50033104C /* CastTableViewCell.swift in Sources */,

@@ -19,3 +19,8 @@ enum TrendingWindowType: String {
     case day = "day"
     case week = "week"
 }
+
+enum CreditType: String {
+    case cast = "cast"
+    case crew = "crew"
+}

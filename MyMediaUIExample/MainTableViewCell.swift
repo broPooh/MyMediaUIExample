@@ -24,6 +24,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var linkButton: UIButton!
     
     var delegate: ComponentMainCellDelegate?
+    var maindCellDelegate: MainTableViewCellDelegate?
     var index: Int = 0
     
     override func awakeFromNib() {
@@ -69,4 +70,8 @@ class MainTableViewCell: UITableViewCell {
 
 protocol ComponentMainCellDelegate {
     func clickedLinkButton(index: Int)
+}
+
+protocol MainTableViewCellDelegate {
+    func linkButtonClicked(trendingData: TmdbTrendingData)
 }
