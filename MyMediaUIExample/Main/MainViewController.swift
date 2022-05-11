@@ -76,7 +76,7 @@ class MainViewController: BaseViewController {
     
     
     @IBAction func searchBarButtonItemClicked(_ sender: UIBarButtonItem) {
-        //let searchStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //let searchStoryboard = UIStoryboard(name: "Main", bundle: nil) 생략가능
         let vc = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         vc.modalPresentationStyle = .fullScreen
         
