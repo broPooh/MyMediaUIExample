@@ -10,7 +10,17 @@ import Network
 
 
 class BaseViewController: UIViewController {
-    var checkNetworkValue = false
+    var checkNetworkValue = false {
+        didSet {
+            DispatchQueue.main.async {
+                if !self.checkNetworkValue {
+                    self.showAlert(title: "네트워크 연결 상태", message: "네트워크를 연결해주세요", okTitle: "확인", okAction: {
+                        self.openSettingScene()
+                    })
+                }
+            }
+        }
+    }
     let networkMonitor = NWPathMonitor()
 
 
@@ -24,11 +34,15 @@ class BaseViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !checkNetworkValue {
-            showAlert(title: "네트워크 연결 상태", message: "네트워크를 연결해주세요", okTitle: "확인", okAction: {
-                self.openSettingScene()
-            })
+        DispatchQueue.main.async {
+            if !self.checkNetworkValue {
+                self.showAlert(title: "네트워크 연결 상태", message: "네트워크를 연결해주세요", okTitle: "확인", okAction: {
+                    self.openSettingScene()
+                })
+            }
         }
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
