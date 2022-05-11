@@ -9,46 +9,7 @@ import UIKit
 import MapKit
 
 
-enum TheaterEnum: String, CaseIterable {
-    case megaBox = "메가박스"
-    case lotteCinema = "롯데시네마"
-    case cgv = "CGV"
-    case all = "ALL"
-        
-    func theaterAnnotation() -> [MKPointAnnotation] {
-        switch self {
-        case .megaBox, .lotteCinema, .cgv, .all:
-            return buildTypeMapAnnotation(type: rawValue)
-        }
-    }
-    
-    func buildTypeMapAnnotation(type: String) -> [MKPointAnnotation] {
-        
-        if type == TheaterEnum.all.rawValue {
-            return TheaterLocationInformation().mapAnnotations.map { theaterLocation in
-                //핀 추가(어노테이션)
-                let annotation = MKPointAnnotation()
-                annotation.title = theaterLocation.location
-                annotation.coordinate = CLLocationCoordinate2D(latitude: theaterLocation.latitude, longitude: theaterLocation.longitude)
-                return annotation
-            }
-        } else {
-            return TheaterLocationInformation().mapAnnotations.filter { theaterLocation in
-                theaterLocation.type == type
-            }.map { theaterLocation in
-                //핀 추가(어노테이션)
-                let annotation = MKPointAnnotation()
-                annotation.title = theaterLocation.location
-                annotation.coordinate = CLLocationCoordinate2D(latitude: theaterLocation.latitude, longitude: theaterLocation.longitude)
-                return annotation
-            }
-        }
-
-    }
-    
-}
-
-class MapViewController: UIViewController {
+class MapViewController: BaseViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     

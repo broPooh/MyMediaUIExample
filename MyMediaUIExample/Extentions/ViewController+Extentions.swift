@@ -5,10 +5,11 @@
 //  Created by bro on 2022/05/06.
 //
 
-import Foundation
 import UIKit
+import Network
 
 extension UIViewController {
+
     
     func presentAlert(title: String, message: String, alertActions: UIAlertAction...) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -44,7 +45,8 @@ extension UIViewController {
         
         //얼럿이 화면에 보여진 직후에 실행될 로직이 있을때 사용할 수 있다.
         self.present(alert, animated: true) {
-            print("얼럿이 떴습니다.")
+            //print("얼럿이 떴습니다.")
         }
     }
+    
 }

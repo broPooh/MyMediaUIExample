@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import Kingfisher
+
 import JGProgressHUD
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     let tvShowInformation = TvShowInformation()
     
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     
     var currentPage = 1
     var totalPage = 0
-    
+        
     var trendingDatas: [TmdbTrendingData] = [] {
         didSet {
             mainTableView.reloadData()
@@ -111,12 +111,10 @@ class MainViewController: UIViewController {
         TmdbAPIManager.shared.fetchTrendingTmdbData(mediaType: mediaType, windowType: windowType, page: page) { code, trendingDatas, totalPage in
             self.currentPage = page
             self.totalPage = totalPage
-            
-            //self.currentPage != 1 ? self.trendingDatas.append(contentsOf: trendingDatas) : self.trendingDatas.removeAll(); self.trendingDatas.append(contentsOf: trendingDatas)
-            
             self.trendingDatas.append(contentsOf: trendingDatas)
         }
     }
+    
 }
 
 // MARK: - TableView UITableViewDataSourcePrefetching

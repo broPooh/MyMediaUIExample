@@ -20,6 +20,7 @@
 		1B6366C1282A258100172A1A /* TmdbTrendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366C0282A258100172A1A /* TmdbTrendingData.swift */; };
 		1B6366C3282A817200172A1A /* CreditData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366C2282A817200172A1A /* CreditData.swift */; };
 		1B6366C6282B628C00172A1A /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1B6366C5282B628C00172A1A /* JGProgressHUD */; };
+		1B6366CC282BA35C00172A1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6366CB282BA35C00172A1A /* BaseViewController.swift */; };
 		1B82ECCC282259BF0033104C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECCB282259BF0033104C /* MainViewController.swift */; };
 		1B82ECCE28225AAE0033104C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */; };
 		1B82ECD2282289650033104C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B82ECD1282289650033104C /* SearchViewController.swift */; };
@@ -40,7 +41,6 @@
 		1BDA02472825108C00E75205 /* ViewController+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA02462825108C00E75205 /* ViewController+Extentions.swift */; };
 		1BDA0249282524A700E75205 /* TheaterLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA0248282524A700E75205 /* TheaterLocation.swift */; };
 		1BDA024B282524D300E75205 /* TheaterLocationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA024A282524D300E75205 /* TheaterLocationInformation.swift */; };
-		1BDA024D2825548B00E75205 /* Alert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA024C2825548B00E75205 /* Alert+Extension.swift */; };
 		1BDA029D2828C00E00E75205 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA029C2828C00E00E75205 /* Alamofire */; };
 		1BDA02A02828C01D00E75205 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1BDA029F2828C01D00E75205 /* SwiftyJSON */; };
 		1BDA02A22828C92D00E75205 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDA02A12828C92D00E75205 /* MovieModel.swift */; };
@@ -61,6 +61,7 @@
 		1B6366BE282A187000172A1A /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1B6366C0282A258100172A1A /* TmdbTrendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbTrendingData.swift; sourceTree = "<group>"; };
 		1B6366C2282A817200172A1A /* CreditData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditData.swift; sourceTree = "<group>"; };
+		1B6366CB282BA35C00172A1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1B82ECCB282259BF0033104C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		1B82ECD1282289650033104C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		1BDA02462825108C00E75205 /* ViewController+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extentions.swift"; sourceTree = "<group>"; };
 		1BDA0248282524A700E75205 /* TheaterLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterLocation.swift; sourceTree = "<group>"; };
 		1BDA024A282524D300E75205 /* TheaterLocationInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterLocationInformation.swift; sourceTree = "<group>"; };
-		1BDA024C2825548B00E75205 /* Alert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Extension.swift"; sourceTree = "<group>"; };
 		1BDA02A12828C92D00E75205 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,29 +119,74 @@
 			isa = PBXGroup;
 			children = (
 				1BDA02342824F82500E75205 /* Consts */,
-				1B5FFE6A28222AB100EC5AD7 /* AppDelegate.swift */,
-				1B6366BC282A173F00172A1A /* TmdbAPIManager.swift */,
-				1B6366C0282A258100172A1A /* TmdbTrendingData.swift */,
-				1B6366C2282A817200172A1A /* CreditData.swift */,
-				1B5FFE6C28222AB100EC5AD7 /* SceneDelegate.swift */,
+				1B6366CF282BA6C000172A1A /* Network */,
 				1BDA023E2824F98B00E75205 /* Data */,
-				1B5FFE7028222AB100EC5AD7 /* Main.storyboard */,
-				1BDA02462825108C00E75205 /* ViewController+Extentions.swift */,
-				1BDA024428250EA300E75205 /* MapViewController.swift */,
-				1BDA024C2825548B00E75205 /* Alert+Extension.swift */,
-				1B6366BE282A187000172A1A /* Enums.swift */,
-				1BDA0248282524A700E75205 /* TheaterLocation.swift */,
-				1BDA024A282524D300E75205 /* TheaterLocationInformation.swift */,
+				1B6366CD282BA69200172A1A /* Extentions */,
+				1B6366D0282BA6D500172A1A /* Map */,
+				1B6366CE282BA69C00172A1A /* Enums */,
 				1BDA023B2824F94A00E75205 /* Book */,
 				1BDA023C2824F96000E75205 /* Cast */,
 				1BDA023D2824F96C00E75205 /* Search */,
-				1B82ECCB282259BF0033104C /* MainViewController.swift */,
-				1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */,
+				1B6366D1282BA6DE00172A1A /* Main */,
 				1B5FFE7328222AB500EC5AD7 /* Assets.xcassets */,
 				1B5FFE7528222AB500EC5AD7 /* LaunchScreen.storyboard */,
 				1B5FFE7828222AB500EC5AD7 /* Info.plist */,
+				1B6366D2282BA6E900172A1A /* Base */,
 			);
 			path = MyMediaUIExample;
+			sourceTree = "<group>";
+		};
+		1B6366CD282BA69200172A1A /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				1BDA02462825108C00E75205 /* ViewController+Extentions.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		1B6366CE282BA69C00172A1A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				1B6366BE282A187000172A1A /* Enums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		1B6366CF282BA6C000172A1A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1B6366BA282A160B00172A1A /* API.swift */,
+				1B6366BC282A173F00172A1A /* TmdbAPIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1B6366D0282BA6D500172A1A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				1BDA024428250EA300E75205 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		1B6366D1282BA6DE00172A1A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1B5FFE6A28222AB100EC5AD7 /* AppDelegate.swift */,
+				1B5FFE6C28222AB100EC5AD7 /* SceneDelegate.swift */,
+				1B5FFE7028222AB100EC5AD7 /* Main.storyboard */,
+				1B82ECCB282259BF0033104C /* MainViewController.swift */,
+				1B82ECCD28225AAE0033104C /* MainTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1B6366D2282BA6E900172A1A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1B6366CB282BA35C00172A1A /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		1BDA02342824F82500E75205 /* Consts */ = {
@@ -150,7 +195,6 @@
 				1BDA02372824F85200E75205 /* Const.swift */,
 				1BDA02392824F8A100E75205 /* ViewController.swift */,
 				1BDA023F2824F9BD00E75205 /* CustomCell.swift */,
-				1B6366BA282A160B00172A1A /* API.swift */,
 			);
 			path = Consts;
 			sourceTree = "<group>";
@@ -189,6 +233,10 @@
 		1BDA023E2824F98B00E75205 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1B6366C0282A258100172A1A /* TmdbTrendingData.swift */,
+				1B6366C2282A817200172A1A /* CreditData.swift */,
+				1BDA024A282524D300E75205 /* TheaterLocationInformation.swift */,
+				1BDA0248282524A700E75205 /* TheaterLocation.swift */,
 				1B5FFE7E28222D7800EC5AD7 /* TvShow.swift */,
 				1B5FFE8028222E1B00EC5AD7 /* TvShowInformation.swift */,
 			);
@@ -287,10 +335,10 @@
 				1B6366BF282A187000172A1A /* Enums.swift in Sources */,
 				1B6366BB282A160B00172A1A /* API.swift in Sources */,
 				1B6366BD282A173F00172A1A /* TmdbAPIManager.swift in Sources */,
+				1B6366CC282BA35C00172A1A /* BaseViewController.swift in Sources */,
 				1B5FFE6B28222AB100EC5AD7 /* AppDelegate.swift in Sources */,
 				1B82ECD2282289650033104C /* SearchViewController.swift in Sources */,
 				1B82ECCE28225AAE0033104C /* MainTableViewCell.swift in Sources */,
-				1BDA024D2825548B00E75205 /* Alert+Extension.swift in Sources */,
 				1B82ECCC282259BF0033104C /* MainViewController.swift in Sources */,
 				1BDA02472825108C00E75205 /* ViewController+Extentions.swift in Sources */,
 				1B6366C1282A258100172A1A /* TmdbTrendingData.swift in Sources */,

@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
     
     let tvShowInformation = TvShowInformation()
     

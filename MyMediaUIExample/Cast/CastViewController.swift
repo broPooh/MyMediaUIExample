@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import JGProgressHUD
 
-class CastViewController: UIViewController {
+class CastViewController: BaseViewController {
     
     let tvShowInformation = TvShowInformation()
     
