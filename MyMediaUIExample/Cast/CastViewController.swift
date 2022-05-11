@@ -61,11 +61,15 @@ class CastViewController: BaseViewController {
     func fetchCreditData(movieId: Int) {
         progress.show(in: view, animated: true)
         TmdbAPIManager.shared.fetchCeditData(movieId: movieId) { statusCode, creditData in
-            self.casts = creditData.casts
-            self.crews = creditData.crews
             
-            self.castTableView.reloadData()
-            self.progress.dismiss(animated: true)
+            DispatchQueue.main.async {
+                self.casts = creditData.casts
+                self.crews = creditData.crews
+                
+                self.castTableView.reloadData()
+                self.progress.dismiss(animated: true)
+            }
+            
         }
     }
 

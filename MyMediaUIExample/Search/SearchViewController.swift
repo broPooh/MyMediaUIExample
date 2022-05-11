@@ -52,7 +52,6 @@ class SearchViewController: BaseViewController {
                     for item in json["items"].arrayValue {
                         
                         let title = item["title"].stringValue.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
-                        
                         let image = item["image"].stringValue
                         let link = item["link"].stringValue
                         let userRating = item["userRating"].stringValue
@@ -64,7 +63,10 @@ class SearchViewController: BaseViewController {
                         self.movieData.append(data)
                     }
                     
-                    self.searchTableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.searchTableView.reloadData()
+                    }
+                    
                     
                 case .failure(let error):
                     print(error)
